@@ -1,0 +1,101 @@
+---
+title: "Clase7"
+author: "Miguelina Mieras"
+date: "7/12/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Ejemplo de carga de coordenadas de puntos
+
+```{r}
+auxilar <- c(1,2,3.25,4,5.80,6,7,8,9.05,10,11,12)
+```
+
+Ejemplo de como cargar datos de excel
+
+```{r}
+library(readxl)
+ciruela_seca_2019_2_1 <- read_excel("C:/Users/Horacio/Desktop/Grupo SiCo/ciruela seca 2019 2-1.xls", 
+    col_types = c("text", "numeric", "numeric", 
+        "text", "text", "numeric", "text", 
+        "text", "numeric", "text", "text", 
+        "numeric", "text", "text", "numeric", 
+        "text", "text", "numeric", "text", 
+        "text", "numeric", "text", "text", 
+        "numeric", "text", "text", "numeric", 
+        "text", "text", "numeric", "text", 
+        "text", "numeric", "text", "text"))
+ciruela_seca_2019_2_1
+```
+
+Ejemplos de ploteo
+
+```{r}
+plot(auxilar,main = "Evolución de los datos",xlab = "mes",ylab = "toneladas")
+```
+
+Construcción de matrices
+
+```{r}
+m1 <- matrix(auxilar,ncol = 2,byrow = TRUE)
+m1
+m2 <- matrix(auxilar,ncol = 2,byrow = FALSE)
+m2
+```
+```{r}
+plot(m1)
+```
+
+```{r}
+plot(m2)
+```
+
+Cómo extraer un elemento de una matriz
+
+Ejemplo: como traer elemento de la fila 2, columna 1.
+
+```{r}
+m1 [2,1]
+```
+
+Como traer la segunda columna
+
+```{r}
+m1 [,2]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
